@@ -804,7 +804,7 @@
       }
 
       // Set z-index and arrow placement
-      el.style.zIndex = (typeof step.zindex === 'number') ? step.zindex : 'auto';
+      // el.style.zIndex = (typeof step.zindex === 'number') ? step.zindex : 'auto';
       this._setArrow(step.placement);
 
       // Set bubble positioning
@@ -929,13 +929,13 @@
 
     _handleBubbleClick: function(evt){
       var action;
-      
+
       // Override evt for IE8 as IE8 doesn't pass event but binds it to window
       evt = evt || window.event; // get window.event if argument is falsy (in IE)
 
       // get srcElement if target is falsy (IE)
       var targetElement = evt.target || evt.srcElement;
-      
+
       //Recursively look up the parent tree until we find a match
       //with one of the classes we're looking for, or the triggering element.
       function findMatchRecur(el){
@@ -996,7 +996,7 @@
             this.destroy();
           }
         }
-        
+
         utils.evtPreventDefault(evt);
       }
       //Otherwise, do nothing. We didn't click on anything relevant.
@@ -2239,7 +2239,7 @@ var _ = {};
  */
 _.escape = function(str){
   if(customEscape){ return customEscape(str); }
-  
+
   if(str == null) return '';
   return ('' + str).replace(new RegExp('[&<>"\']', 'g'), function(match){
     if(match == '&'){ return '&amp;' }
